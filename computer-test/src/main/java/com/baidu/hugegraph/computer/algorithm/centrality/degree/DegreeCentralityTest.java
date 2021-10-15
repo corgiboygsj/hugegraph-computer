@@ -96,7 +96,7 @@ public class DegreeCentralityTest extends AlgorithmTestBase {
                                             return weightValue.value();
                                         }
                                     }).reduce(Double::sum).orElse(0.0);
-                Assert.assertEquals(totalValue, value.value(), 0.000001);
+                assertEquals(totalValue, value.value());
             }
         }
 
