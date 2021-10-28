@@ -27,11 +27,11 @@ import com.baidu.hugegraph.computer.core.graph.id.Id;
 import com.baidu.hugegraph.computer.core.graph.value.DoubleValue;
 import com.baidu.hugegraph.computer.core.graph.value.MapValue;
 import com.baidu.hugegraph.computer.core.graph.vertex.Vertex;
-import com.baidu.hugegraph.computer.core.output.hg.HugeOutput;
+import com.baidu.hugegraph.computer.core.output.hg.HugeGraphOutput;
 import com.baidu.hugegraph.structure.constant.WriteType;
 import com.baidu.hugegraph.util.Log;
 
-public class ClosenessCentralityOutput extends HugeOutput {
+public class ClosenessCentralityOutput extends HugeGraphOutput {
 
     private static final Logger LOG =
             Log.logger(ClosenessCentralityOutput.class);
@@ -51,21 +51,13 @@ public class ClosenessCentralityOutput extends HugeOutput {
     }
 
     @Override
-    public com.baidu.hugegraph.structure.graph.Vertex constructHugeVertex(
-                                                      Vertex vertex) {
-        com.baidu.hugegraph.structure.graph.Vertex hugeVertex =
-                new com.baidu.hugegraph.structure.graph.Vertex(null);
-        hugeVertex.id(vertex.id().asObject());
-
+    protected Object value(Vertex vertex) {
         MapValue<DoubleValue> localValue = vertex.value();
         // Cumulative distance
         double centrality = 0;
         for (Map.Entry<Id, DoubleValue> entry : localValue.entrySet()) {
             centrality += 1.0D / entry.getValue().value();
         }
-        hugeVertex.property(this.name(), centrality);
-        LOG.debug("The closeness centrality of vertex {} is {}",
-                  centrality, vertex);
-        return hugeVertex;
+        return centrality;
     }
 }

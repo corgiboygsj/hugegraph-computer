@@ -109,7 +109,7 @@ public class MapValue<T extends Value<?>> implements Value<MapValue<T>> {
     }
 
     @Override
-    public Object object() {
+    public Object value() {
         return this.map;
     }
 
