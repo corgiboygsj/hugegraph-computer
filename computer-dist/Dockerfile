@@ -5,4 +5,4 @@ COPY . /etc/local/hugegraph-computer
 WORKDIR /etc/local/hugegraph-computer
 RUN apt-get update && apt-get -y install gettext-base && apt-get -y install wget && apt-get -y install tar
 RUN wget "https://arthas.aliyun.com/download/latest_version?mirror=aliyun" -O /arthas
-RUN tar xvf /arthas
+RUN tar -xvf /arthas
