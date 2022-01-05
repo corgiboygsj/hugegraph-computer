@@ -4,4 +4,4 @@ ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
 COPY . /etc/local/hugegraph-computer
 WORKDIR /etc/local/hugegraph-computer
 RUN apt-get update && apt-get -y install gettext-base && apt-get -y install wget
-RUN wget https://arthas.aliyun.com/download/latest_version?mirror=aliyun -O arthas && tar xvf arthas
+RUN wget "https://arthas.aliyun.com/download/latest_version?mirror=aliyun" -O arthas && tar xvf arthas
