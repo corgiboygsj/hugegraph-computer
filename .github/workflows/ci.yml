@@ -42,8 +42,8 @@ jobs:
           COMMIT_ID: 848b8fb17804ddc561af832dff0bdc3f6221c904
           HDFS_VERSION: 3.3.1
         run: |
-          $TRAVIS_DIR/install-env.sh
           $TRAVIS_DIR/install-hdfs.sh $HDFS_VERSION
+          $TRAVIS_DIR/install-env.sh
           $TRAVIS_DIR/install-hugegraph-from-source.sh $COMMIT_ID | grep -v "Downloading\|Downloaded"
           $TRAVIS_DIR/load-data-into-hugegraph.sh
 

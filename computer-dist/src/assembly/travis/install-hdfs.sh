@@ -2,9 +2,10 @@
 
 set -ev
 
+echo "Starting install hdfs"
 TRAVIS_DIR=`dirname $0`
 HDFS_VERSION=$1
-HDFS_URL="https://dlcdn.apache.org/hadoop/common/hadoop-${HDFS_VERSION}/hadoop-${HDFS_VERSION}.tar.gz"
+HDFS_URL=https://dlcdn.apache.org/hadoop/common/hadoop-${HDFS_VERSION}/hadoop-${HDFS_VERSION}.tar.gz
 
 cd ${TRAVIS_DIR}
 wget -O hdfs.tar.gz ${HDFS_URL}
