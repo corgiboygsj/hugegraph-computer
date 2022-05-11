@@ -29,6 +29,7 @@ jobs:
           TRAVIS_DIR: computer-dist/src/assembly/travis
           COMMIT_ID: 848b8fb17804ddc561af832dff0bdc3f6221c904
         run: |
+          echo `pwd`
           $TRAVIS_DIR/install-hdfs.sh
           $TRAVIS_DIR/install-env.sh
           $TRAVIS_DIR/install-hugegraph-from-source.sh $COMMIT_ID | grep -v "Downloading\|Downloaded"
