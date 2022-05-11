@@ -24,12 +24,6 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
 
-      - name: Setup Hdfs
-        env:
-          HDFS_VERSION: '3.3.1'
-        run: |
-          $TRAVIS_DIR/install-hdfs.sh $HDFS_VERSION
-
       - name: Setup Minikube-Kubernetes
         uses: manusa/actions-setup-minikube@v2.4.2
         with:
@@ -62,6 +56,7 @@ jobs:
           $TRAVIS_DIR/install-env.sh
           $TRAVIS_DIR/install-hugegraph-from-source.sh $COMMIT_ID | grep -v "Downloading\|Downloaded"
           $TRAVIS_DIR/load-data-into-hugegraph.sh
+          $TRAVIS_DIR/install-hdfs.sh
 
       - name: Install JDK 11
         uses: actions/setup-java@v2
