@@ -7,10 +7,10 @@ TRAVIS_DIR=`dirname $0`
 HDFS_VERSION=$1
 HDFS_URL=https://dlcdn.apache.org/hadoop/common/hadoop-${HDFS_VERSION}/hadoop-${HDFS_VERSION}.tar.gz
 
-cd ${TRAVIS_DIR}
-wget -O hdfs.tar.gz ${HDFS_URL}
-mkdir hdfs
-tar -zxvf hdfs.tar.gz -C hdfs --strip-components 1
+echo "Download with url: ${HDFS_URL}"
+wget -O ${TRAVIS_DIR}/hdfs.tar.gz ${HDFS_URL}
+mkdir ${TRAVIS_DIR}/hdfs
+tar -zxvf ${TRAVIS_DIR}/hdfs.tar.gz -C ${TRAVIS_DIR}/hdfs --strip-components 1
 
 HDFS_HOME=${TRAVIS_DIR}/hdfs
 
