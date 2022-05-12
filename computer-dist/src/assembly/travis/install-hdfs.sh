@@ -49,7 +49,6 @@ ssh-add ~/.ssh/id_rsa
 export HADOOP_HOME=${HDFS_HOME}
 export HDFS_NAMENODE_ADDR=127.0.0.1:9000
 export PATH=$HADOOP_HOME/bin:$PATH
-source /etc/profile
 
 ${HDFS_HOME}/bin/hdfs namenode -format
 ${HDFS_HOME}/sbin/start-dfs.sh
