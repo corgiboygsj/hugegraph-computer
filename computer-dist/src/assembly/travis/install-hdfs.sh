@@ -14,7 +14,7 @@ tar -zxvf hdfs.tar.gz -C hdfs --strip-components 1
 
 HDFS_HOME=${TRAVIS_DIR}/hdfs
 
-tee ${HDFS_HOME}/etc/hadoop/conf/core-site.xml <<EOF
+tee ${HDFS_HOME}/etc/hadoop/core-site.xml <<EOF
 <configuration>
     <property>
         <name>fs.defaultFS</name>
